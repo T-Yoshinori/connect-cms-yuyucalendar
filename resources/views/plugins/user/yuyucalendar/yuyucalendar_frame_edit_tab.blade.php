@@ -1,0 +1,1 @@
+<li class="nav-item"><a class="nav-link {{ $action === 'editView' ? 'active' : '' }}" href="{{ url('/plugin/yuyucalendar/editView/'.$page->id.'/'.$frame->id) }}#frame-{{ $frame->id }}">集約・表示設定</a></li>
