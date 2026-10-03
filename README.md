@@ -1,0 +1,2 @@
+# connect-cms-yuyucalendar
+Connect-CMS向け非公式YuyuCalendarプラグイン。標準CalendarとYuyuToDoの予定を集約表示します。
