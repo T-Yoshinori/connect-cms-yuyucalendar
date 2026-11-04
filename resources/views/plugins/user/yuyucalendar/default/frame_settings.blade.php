@@ -3,6 +3,7 @@
 @include('plugins.user.yuyucalendar.yuyucalendar_frame_edit_tab')
 @endsection
 @section("plugin_setting_$frame->id")
+@include('plugins.common.flash_message_for_frame', ['frame_id' => $frame->id])
 @include('plugins.common.errors_form_line')
 <form method="POST" action="{{ url('/redirect/plugin/yuyucalendar/calendarSaveView/'.$page->id.'/'.$frame->id) }}#frame-{{ $frame->id }}">
 {{ csrf_field() }}

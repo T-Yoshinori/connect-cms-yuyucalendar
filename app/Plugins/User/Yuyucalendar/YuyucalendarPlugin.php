@@ -140,6 +140,7 @@ class YuyucalendarPlugin extends UserPluginBase
                 FrameConfig::updateOrCreate(['frame_id' => $frame_id, 'name' => $name], ['value' => $value]);
             }
         });
+        $request->session()->flash('flash_message_for_frame' . $frame_id, '設定を保存しました。');
         return collect(['redirect_path' => url('/plugin/yuyucalendar/editView/' . $page_id . '/' . $frame_id) . '#frame-' . $frame_id]);
     }
 }

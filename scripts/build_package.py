@@ -6,13 +6,12 @@ import json
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.1.0-beta.1'
+VERSION = '0.1.0-cms2.beta.1'
 NAME = f'connect-cms-yuyucalendar-{VERSION}'
 SCOPES = (
     'app/Plugins/User/Yuyucalendar',
     'resources/views/plugins/user/yuyucalendar',
     'resources/views/plugins/user/calendars/yuyucalendar',
-    'integrations/yuyutodo',
 )
 FILES = (
     'database/seeders/YuyuCalendarPluginSeeder.php',
@@ -28,7 +27,7 @@ def main():
     assert all(p.exists() for p in files)
     manifest = {
         'version': VERSION,
-        'connect_cms': '1.44.1',
+        'connect_cms': '2.44.1',
         'files': {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
     }
     output = ROOT / 'downloads'

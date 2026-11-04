@@ -2,7 +2,7 @@
 
 ## 目的
 
-標準Calendarの複数カレンダーとYuyuToDoを、一つの画面に集約する独立プラグインです。予定やToDoは元のテーブルから直接取得し、集約用の予定データは保存しません。対応確認はConnect-CMS 1.44.1です。
+標準Calendarの複数カレンダーとYuyuToDoを、一つの画面に集約する独立プラグインです。予定やToDoは元のテーブルから直接取得し、集約用の予定データは保存しません。対象はConnect-CMS 2.44.1です。
 
 ## 表示と操作
 
@@ -55,7 +55,7 @@ YuyuToDoは既存の `TodoQueryService` を利用し、一覧の基準ページ�
 
 ## 導入
 
-配布ファイルの配置と任意のYuyuToDo連携更新は[README](../README.md)を参照してください。
+配布ファイルの配置とYuyuToDo連携設定は[README](../README.md)を参照してください。
 
 YuyuCalendarの追加ファイルを同じパスに配置したうえで、CMSルートで実行します。
 
@@ -81,7 +81,7 @@ Calendar用テンプレートを `resources/views/plugins/user/calendars/yuyucal
 
 YuyuCalendarの予定リンクには、クリック元のURL・表示条件と元フレームIDを暗号化した戻り先情報を付けます。詳細画面の「一覧に戻る」は、これを検証してクリック元のYuyuCalendarへ戻ります。表示日・月／週／日／一覧・ToDoの対象と状態・表示元選択・日付未設定ToDoのページ位置を保持します。元Calendarから直接開いた詳細、戻り先情報が不正な場合は元Calendarへ戻ります。戻り先は同一CMSのURLに限定します。
 
-YuyuToDoは既存の `resources/views/plugins/user/yuyutodo/default/todo_detail.blade.php` を修正します。YuyuCalendarから開いた日付付きToDo・日付未設定ToDoの両方で、検証済みの戻り先があればクリック元へ戻り、なければ元ToDo一覧へ戻ります。YuyuToDo側のテンプレート切替は不要です。YuyuCalendarが未導入の場合も元の一覧へ戻る動作を保持します。
+YuyuToDoのVer.2版に詳細画面の戻り先連携を収録しています。YuyuCalendarから開いた日付付きToDo・日付未設定ToDoの両方で、検証済みの戻り先があればクリック元へ戻り、なければ元ToDo一覧へ戻ります。YuyuToDo側のテンプレート切替は不要です。YuyuCalendarが未導入の場合も元の一覧へ戻る動作を保持します。
 
 編集フォームまで検証済みの戻り先を引き継ぎ、保存成功後とキャンセル時にはクリック元のYuyuCalendarへ戻ります。保存後は元データを再取得するため変更内容が反映されます。表示期間外へ日時を移した予定、未完了表示で完了にしたToDo等は表示条件から外れます。入力エラー時は保存せず、編集画面で戻り先を保持します。YuyuToDoの状態変更・削除も戻り先を引き継ぎます。
 

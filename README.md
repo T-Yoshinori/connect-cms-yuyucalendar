@@ -2,16 +2,16 @@
 
 複数の標準CalendarとYuyuToDoを、月・週・日・一覧へ集約表示するConnect-CMS用の非公式プラグインです。
 
-- バージョン：0.1.0-beta.1
+- バージョン：0.1.0-cms2.beta.1
 - 開発・提供：ゆうゆう企画
-- 対応確認：Connect-CMS 1.44.1
+- 対象：Connect-CMS 2.44.1 / PHP 8.3
 - 状態：ベータ版。新規インストール用
 
 ## ダウンロード
 
-[connect-cms-yuyucalendar-0.1.0-beta.1.zip](downloads/connect-cms-yuyucalendar-0.1.0-beta.1.zip)
+[connect-cms-yuyucalendar-0.1.0-cms2.beta.1.zip](downloads/connect-cms-yuyucalendar-0.1.0-cms2.beta.1.zip)
 
-ZIPには導入用ファイルと任意のYuyuToDo連携更新を収録しています。Connect-CMS本体・サイトデータ・テスト依存パッケージは含みません。
+ZIPには導入用ファイルを収録しています。Connect-CMS本体・サイトデータ・テスト依存パッケージは含みません。
 
 ## 主な機能
 
@@ -44,18 +44,7 @@ php artisan view:clear
 
 ## YuyuToDoとの連携（任意）
 
-標準Calendarだけの集約ではこの手順は不要です。
-
-1. [YuyuToDo](https://github.com/T-Yoshinori/connect-cms-yuyutodo)を先に導入します（対応確認：0.1.0-beta.1）。YuyuToDoのテーブルを作成するmigrationも完了させてください。
-2. ZIPの `integrations/yuyutodo/` 内の `app` と `resources` をCMSルートへ同じ構成で配置します。既存の次の3ファイルを更新します。
-
-   - `app/Plugins/User/Yuyutodo/YuyutodoPlugin.php`
-   - `resources/views/plugins/user/yuyutodo/default/todo_detail.blade.php`
-   - `resources/views/plugins/user/yuyutodo/default/todo_input.blade.php`
-
-3. `php artisan view:clear` を実行し、YuyuCalendarの設定で対象のToDo管理フレームを選択します。
-
-YuyuToDo側のテンプレート切替は不要です。独自テンプレートを使用している場合は、戻り先情報を引き継ぐ変更をそのテンプレートにも反映してください。後からYuyuToDoを導入・更新して上記ファイルを上書きした場合は、連携更新を再適用してください。
+標準Calendarだけの集約ではYuyuToDoの導入は不要です。連携する場合は、[YuyuToDoのVer.2版](https://github.com/T-Yoshinori/connect-cms-yuyutodo/tree/connect-cms-v2)を導入し、YuyuCalendarで対象のToDo管理フレームを選択します。戻り先の連携コードはYuyuToDoのVer.2版に収録済みです。
 
 ## 戻り先と表示内容
 
@@ -70,6 +59,10 @@ YuyuToDo側のテンプレート切替は不要です。独自テンプレート
 独自予定登録、ドラッグによる日時変更、通知・出欠、YuyuPortal画面への組み込みは含みません。
 
 [詳細仕様と確認項目](docs/yuyu-calendar.md)
+
+## 確認範囲
+
+Ver.1公開版の機能を収録し、Ver.2統合版の設定保存通知の修正を反映しました。単独ZIPによる新規インストールは未検証です。下記のPHP独立テストはLaravel 8系向けです。
 
 ## 開発・パッケージ作成
 
